@@ -1,0 +1,7 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_row(form.Name) }}
+    {{ form_row(form.Country) }}
+    {{ form_row(form.Longtitude) }}
+    {{ form_row(form.Latitude) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
