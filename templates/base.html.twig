@@ -24,6 +24,12 @@
             background: url("https://placehold.co/100x100/FFFFFF/EFEFEF/png?text=57886");
         }
     </style>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ path('app_login') }}">Login</a>
+    {% endif %}
+
 </head>
 <body>
 <nav class="navbar bg-light">
