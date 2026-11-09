@@ -1,0 +1,74 @@
+App\Entity\Location:
+    properties:
+        Name:
+            - NotBlank:
+                  groups: ['create', 'edit']
+                  message: "City can't be empty."
+            - Length:
+                  min: 2
+                  max: 50
+                  groups: ['create', 'edit']
+                  minMessage: "City name must be in range 2-50 characters."
+                  maxMessage: "City name must be in range 2-50 characters."
+        Country:
+            - NotBlank:
+                  groups: ['create', 'edit']
+                  message: 'Select country.'
+            - Choice:
+                  choices: ['PL', 'DE', 'FR', 'ES', 'IT', 'GB', 'US']
+                  groups: ['create', 'edit']
+                  message: 'Select existing country.'
+        Latitude:
+            - NotBlank:
+                  groups: ['create', 'edit']
+                  message: "Latitude can't be empty."
+            - Range:
+                  min: -90
+                  max: 90
+                  groups: ['create', 'edit']
+                  notInRangeMessage: 'Latitude must be between -90 and 90.'
+        Longtitude:
+            - NotBlank:
+                  groups: [ 'create', 'edit' ]
+                  message: "Longtitude can't be empty."
+            - Range:
+                  min: -180
+                  max: 180
+                  groups: [ 'create', 'edit' ]
+                  notInRangeMessage: 'Longtitude must be between -180 and 180.'
+
+App\Entity\Measurement:
+    properties:
+        date:
+            - NotBlank:
+                  groups: [ 'create', 'edit' ]
+                  message: 'Select a measurement date.'
+        temperature:
+            - NotBlank:
+                  groups: [ 'create', 'edit' ]
+                  message: 'Enter a temperature.'
+        percipation:
+            - NotBlank:
+                  groups: [ 'create', 'edit' ]
+                  message: 'Enter precipitation.'
+            - Range:
+                  min: 0
+                  max: 100
+                  groups: [ 'create', 'edit' ]
+                  notInRangeMessage: 'Precipitation must be between 0 and 100%.'
+        pressure:
+            - NotBlank:
+                  groups: [ 'create', 'edit' ]
+                  message: 'Enter pressure.'
+            - Range:
+                  min: 0
+                  groups: [ 'create', 'edit' ]
+                  minMessage: "Pressure can't be below zero."
+        wind_speed:
+            - NotBlank:
+                  groups: [ 'create', 'edit' ]
+                  message: 'Please enter wind speed.'
+            - Range:
+                  min: 0
+                  groups: [ 'create', 'edit' ]
+                  minMessage: "Wind speed can't be below zero."
